@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけんゲーム</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <header>
+        <h1>ジャンケンゲーム</h1>
+    </header>
+    <main>
+        <div class="wrapper">
+            <div id="result" class="result">
+                <img id="guchopar" src="./images/gu.png" alt="guchopar">
+            </div>
+            <div class="wrapper-btn">
+                <button id="btn" class="btn">START</button>
+            </div>
+            <div class="hand_btn">
+
+                <div id="gu" class="gu">
+                    <button id="btn2" class="btn2" onclick="stop();"> <img id="randImg" class="img_hand"
+                            src="./images/gu.png" alt="gu">
+                    </button>
+                </div>
+
+                <div id="cho" class="cho">
+                    <button id="btn2" class="btn2"><img id="randImg" class="img_hand" src="./images/cho.png" alt="gu">
+                    </button>
+                </div>
+                <div id="par" class="par">
+                    <button id="btn2" class="btn2"><img id="randImg" class="img_hand" src="./images/par.png" alt="gu">
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer> </footer>
+
+    <!-- オーディオ再生する処理 -->
+    <!-- <audio id="sound-play" preload="auto">
+        <source src="" 　type="audio/mp3">
+    </audio>
+
+    <audio id="sound-pause" preload="auto">
+        <source src="" 　type="audio/mp3">
+    </audio> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+
+        // じゃんけんをスロット表示
+        // const slotImg = ["./images/janken.png"];
+        // const slotNum = 50;
+        // let startPos = -30;
+        // let slotPos = -150;
+        // let moveTime = 5000;
+
+        // $(document).ready(function () {
+        //     slotCreate($("#guchopar"));
+        // })
+
+        // function slotCreate(obj) {
+        //     obj.stop(true, true);
+        //     obj.children().remove();
+
+
+        //     // スロット画像のタグ生成
+        //     for (var i = 1; i <= slotNum; i++) {
+        //         // 画像ファイルは配列からランダムに取得
+        //         var idx = Math.floor(Math.random() * slotImg.length);
+        //         obj.append("<div class='slot'>"
+        //             + "<img border='0'"
+        //             + " src='img/" + slotImg[idx] + "'"
+        //             + " width='40' height='26' />"
+        //             + "</div>");
+        //     }
+
+        //     obj.css({
+        //         "margin-top": startPos + "px"
+
+        //     });
+
+        //     function slotStart() {
+        //         slotMove($("guchopar"));
+        //     }
+
+        //     function slotMove(obj) {
+        //         if (obj.css("margin-top") != startPos)
+        //             slotCreate(obj);
+        //     }
+
+
+        //     obj.animate({
+        //         "margin-top": startPos + "px"
+        //     }, {
+        //         'duration': moveTime,
+        //         'easing': 'linear'
+        //     }
+        //     );
+        // };
+
+
+
+        //    スライドで高速表示させる処理　
+        let pics_src = new Array("./images/gu.png", "./images/cho.png", "./images/par.png");
+        let num = -1;
+
+
+
+        slideshow();
+        function slideshow() {
+            if (num == 2) {
+                num = 0;
+            }
+            else {
+                num++;
+            }
+            document.getElementById("guchopar").src = pics_src[num];
+
+            setTimeout("slideshow()", 95)
+        }
+
+
+        // $("btn").on("click", function () { }
+
+        // 止めようとする処理　上手く行かず
+        // function stop() {
+        //     if (slideshow) {
+        //         clearInterval(slideshow);
+        //     }
+        // }
+
+
+// じゃんけんの手を画像で定義し手のボタンで止めようとする処理
+        // const images = ("./images/gu.png", "./images/cho.png", "./images/par.png");
+        // const result = ["./images/gu.png", "./images/cho.png", "./images/par.png"];
+
+
+        // $("#gu").on("click", function () {
+
+        //     let rand = Math.floor(Math.random() * images.length);
+        //     $("#guchopar")(result[rand]);
+        //     if (rand == 0) {
+        //         $("#judg").text("アイコ");
+        //     }
+        //     else if (rand == 1) {
+        //         $("#judg").text("勝ち");
+        //     }
+        //     else {
+        //         $("#judg").text("負け");
+        //     }
+
+        // })
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

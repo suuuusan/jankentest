@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけんアプリ</title>
+</head>
+
+<body>
+    <header>
+        <h1>じゃんけんゲーム</h1>
+    </header>
+
+    <canvas id="screen" width="400" height="400" style="border: 2px solid #010101;"></canvas>
+
+    <div>
+        <button id="rock" value="1">グー</button>
+        <button id="scissors" value="2">チョキ</button>
+        <button id="paper" value="0">パー</button>
+        <button id="restart">再開</button>
+    </div>
+
+    <script>
+        'use strict';
+        (() => {
+
+            const HAND_FORMS = [0, 1, 2];
+            const HAND_Y = [0, -300, -700];
+            const HAND_HEIGHT = [300, 300, 300];
+            const IMAGE = "./img/janken.png";
+            const FPS = 10;
+
+            let isPause = false;
+            let currentFrame = 0;
+
+            function main() {
+                const canvas = document.getElementById("screen");
+                const contex = canvas.getContext("2d");
+                const imageobj = new Image();
+                currentFrame = 0;
+
+                imageobj.onload = function () {
+                    function loop() {
+                        if (!isPause) {
+                            draw(canvas, context, imageobj, currentFrame++)
+                        }
+                        setTimeout(loop, 1000 / FPS);
+                    }
+                    loop();
+
+                };
+                imageobj.src = IMAGE_PATH = "./images.janken.png";
+
+            }
+            function draw(canvas, context, imageobject, frame) {
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                const handIndex = frame % HAND_FORMS.length;
+                const sx = HAND_Y[handIndex];
+                const swidth = HAND_HEIGHT[handIndex];
+
+                context.drawImage(
+                    imageobject,
+                    sx,
+                    0,
+                    swidth,
+                    imageobject.height,
+                    0,
+                    0,
+                    canvas.height
+                );
+
+            }
+
+            function setButtonAction() {
+                const rock = document.getElementById('rock');
+                const scissor = document.getElementById('scissors');
+                const paper = document.getElementById('paper');
+                const restart = document.getElementById('restart');
+
+
+
+                function onClick(event) {
+                    const myHandType = parseInt(event.target.value, 10);
+                    const enemyHandtype = parseInt(currentFrame % HAND_HORMS.length, 10)
+
+                    isPause = true;
+
+                    judge(myHandType, enemyHandtype);
+                }
+
+                rock.addEventListener("click", onClick);
+                scissors.addEventListener("click", onClick);
+                paper.addEventListener("click", onClick);
+
+                restart.addEventListener("click", function () {
+                    window.location.reload();
+                });
+            }
+
+            function judge(myHandType, enemyHandtype) {
+                const result = (myHandType - Math.abs(enemyHandtype) + 3) % HAND_FORMS.length
+
+                if (result === 0) {
+                    alert('引き分けです!');
+                } else if (result === 1) {
+                    alert('あなたの負けです!');
+                } else {
+                    alert('あなたの勝ちです!');
+                }
+
+            }
+
+            setButtonAction();
+            main();
+
+        })();
+
+
+    </script>
+</body>
+
+</html>

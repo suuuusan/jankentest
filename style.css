@@ -1,0 +1,106 @@
+body {
+  color: #004c8c;
+  font-family: arial, sans-serif;
+}
+
+header{
+    display: block;
+    text-align: center;
+    background-color: turquoise;
+    color: white;
+
+}
+
+.result{
+    overflow: hidden;
+    
+
+}
+
+ 
+#guchopar{
+    width: 180px;
+
+
+}
+
+
+.wrapper {
+  margin: 0 auto;
+}
+
+.result {
+  align-items: center;
+  border: solid 2px #004c8c;
+  border-radius: 50%;
+  display: flex;
+  font-size: 130px;
+  font-weight: bold;
+  justify-content: center;
+  height: 200px;
+  margin: 0 auto 10px;
+  text-align: center;
+  width: 200px;
+}
+
+
+
+.wrapper-btn {
+  padding: 20px 0 50px;
+  text-align: center;
+}
+
+
+.btn {
+  background: red;
+  border: dashed 1px #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgb(243, 106, 106);
+  color: #ffffff;
+  display: inline-block;
+  font-size: 20px;
+  text-decoration: none;
+  height: 100px;
+  line-height: 100px;
+  overflow: hidden;
+  text-align: center;
+  transition: .4s;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.btn:hover {
+  background: turquoise;
+  box-shadow: 0 0 0 5px #668ad8;
+  cursor: pointer;
+
+}
+
+.hand_btn{
+ display: flex;
+ justify-content: center;
+}
+
+.btn2{margin:0 20px ;
+  background-color: turquoise;
+  border-radius: 50%;
+
+}
+
+.img_hand{
+    width: 100px;
+    height: 100px;
+}
+
+.img_hand:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+   overflow: hidden;
+  text-align: center;
+  transition: .1.5s;
+  vertical-align: middle;
+}
+
+footer {
+  text-align: center;
+}
